@@ -401,6 +401,33 @@ body.is-touch #hotbar { bottom: max(10px, calc(var(--sab) + 6px)); }
   body:not(.is-touch) #itemName { left: auto; right: max(18px, calc(var(--sar) + 12px)); transform: translateY(6px); }
   body:not(.is-touch) #itemName.on { transform: none; }
 }
+
+/* ---------- 모바일 정돈 ---------- */
+body.is-touch #wrist { width: min(250px, 30vw); padding: 7px 10px 8px; gap: 5px; border-radius: 14px 14px 14px 6px; left: max(12px, calc(var(--sal) + 8px)); bottom: max(10px, calc(var(--sab) + 6px)); }
+body.is-touch #wrist::before, body.is-touch #wrist::after { display: none; }
+body.is-touch .wr-zone { font-size: 12px; }
+body.is-touch .wr-alt { font-size: 16px; }
+body.is-touch .wr-alt i { font-size: 11px; }
+body.is-touch .bar { height: 9px; }
+body.is-touch .wr-bot #classTag { display: none; }
+body.is-touch .wr-bot { font-size: 10px; justify-content: flex-end; }
+body.is-touch .wr-st span { font-size: 10px; padding: 0 5px 0 3px; }
+body.is-touch .wr-st b { font-size: 10px; }
+body.is-touch #hotbar { gap: 6px; bottom: max(10px, calc(var(--sab) + 6px)); }
+body.is-touch .slot { width: 44px; height: 44px; border-radius: 11px; }
+body.is-touch .slot .ic { font-size: 21px; }
+body.is-touch .slot .k { display: none; }
+body.is-touch #itemName { bottom: calc(max(10px, calc(var(--sab) + 6px)) + 54px); padding: 4px 10px; }
+body.is-touch #itemName b { font-size: 13px; }
+body.is-touch #itemName span { font-size: 11px; }
+body.is-touch #buffs { bottom: auto; top: max(12px, calc(var(--sat) + 8px)); left: max(12px, calc(var(--sal) + 8px)); }
+body.is-touch #topbar button, body.is-touch #socialBar button { width: 40px; height: 40px; border-radius: 11px; }
+body.is-touch #chatLog { bottom: auto; top: calc(max(12px, var(--sat)) + 44px); width: min(300px, 34vw); font-size: 12px; }
+.tbtn { width: 66px; height: 66px; border: 2px solid rgba(255,255,255,.28); background: rgba(12,22,26,.42); font-size: 14px; backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px); }
+#btnGrab { width: 84px; height: 84px; font-size: 16px; }
+#btnItem .ic { font-size: 26px; }
+body.is-touch #toast { bottom: auto !important; top: 38%; }
+body.is-touch #prompt { top: 64%; font-size: 13px; padding: 7px 11px; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
 }
@@ -420,13 +447,13 @@ body.is-touch #hotbar { bottom: max(10px, calc(var(--sab) + 6px)); }
     <div id="fx" aria-hidden="true"><i class="fx-chill"></i><i class="fx-venom"></i><i class="fx-drowsy"></i></div>
     <div id="wrist">
       <div class="wr-top">
-        <span class="wr-zone"><b data-i18n="zone.1.num">Ⅰ</b><span data-i18n="zone.1">짠물 절벽</span></span>
+        <span class="wr-zone"><b id="zoneNum">Ⅰ</b><span id="zoneName">짠물 절벽</span></span>
         <span class="wr-alt"><i>▲</i><span id="altVal">0000</span><small>m</small></span>
       </div>
       <div class="bar"><div id="stamFill"></div><div id="segs"></div><div class="ticks"></div></div>
       <div id="stChips" class="wr-st"></div>
       <div class="alt-track"><span id="altMarker"></span></div>
-      <div class="wr-bot"><span id="classTag" data-cls="vanguard">선봉대</span><span><span data-i18n="hud.goal">목표 화톳불 캠프</span> 251m</span></div>
+      <div class="wr-bot"><span id="classTag" data-cls="vanguard">선봉대</span><span class="wr-goal"><span id="goalName">목표 화톳불 캠프</span> <span id="goalAlt">251</span>m</span></div>
     </div>
     <div id="prompt" hidden><kbd id="promptKey">E</kbd><span id="promptText"></span><div class="ring"><i id="promptProg"></i></div></div>
     <div id="hint" role="status" aria-live="polite"></div>
